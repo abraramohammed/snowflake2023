@@ -35,9 +35,9 @@ streamlit.dataframe(fruityvice_normalized)
 
 my_connection = snowflake.connector.connect(**streamlit.secrets['snowflake'])
 my_connection = my_connection.cursor()
-my_connection.execute('select current_user(), current_account(), current_region()');
+my_connection.execute('select * from fruit_load_list');
 my_data_row = my_connection.fetchone()
-streamlit.text('Hello from snowflake')
+streamlit.text('The Fruit Load List Contains')
 streamlit.text(my_data_row)
 
 
