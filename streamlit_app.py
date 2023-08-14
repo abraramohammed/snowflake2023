@@ -38,7 +38,7 @@ try:
   if not fruit_choice:
       streamlit.error('Please select a fruit to get information')
   else:
-    back_from_fucntion = get_fruityvice_data(fruit_choice)
+    back_from_function = get_fruityvice_data(fruit_choice)
     #output it on the screen as a table
     streamlit.dataframe(back_from_function)          
 except URLError as e:
@@ -57,7 +57,7 @@ if streamlit.button('Get Fruit Load List'):
 #allow end user to add fruit from fruitlist
 def insert_row_snowflake(new_fruit):
   with my_connection.cursor() as my_cur:
-       my_cur.execute("insert into fruit_load_list values('from streamlit')")
+       my_cur.execute("insert into fruit_load_list values('new_fruit')")
        return 'Thanks for adding' + new_fruit
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?')
